@@ -1,0 +1,855 @@
+/*        GLOBAL          */
+*{
+    font-family: 'Alef';
+    box-sizing: border-box;
+}
+html{
+    margin: 0 auto
+}
+html{
+    max-width: 1100px!important;
+    height:100%!important;
+}
+
+
+body{
+    display:grid;
+    grid-template:
+    "logopag" auto
+    "header" auto
+    "main" auto
+    "footer" auto;
+    row-gap:1rem;
+
+}
+
+body>*{
+    border:1px solid rgb(92, 91, 54);
+}
+
+.arcadia-top-background1{
+    position:absolute;
+    left:0;
+    top:0;
+    padding-top: 3rem;
+    float:left;
+    width:25rem;
+    background-color: #79CAF9
+}
+.arcadia-top-background{
+    position:absolute;
+    right:0;
+    top:-14.4rem;
+    width:100vw;
+    height: 40.1rem;
+    background-color: #79CAF9;
+    overflow:hidden;
+    filter: blur(10px);
+
+}
+
+.logoPag{
+    grid-area: logopag;
+    background-color: rgb(184, 217, 184);
+    display:flex;
+    flex-direction: row;
+    height: 15rem;
+    position: relative;
+    overflow: hidden;
+    background-image: url(/assets/img/sunny-landscape.jpg);
+    background-repeat: no-repeat, repeat;
+    padding-top: 25rem;
+    background-size: 1100px 40rem;
+    background-position: bottom left;
+
+}
+
+.arcadiaBanner{
+    width: 25rem;
+    display: block;
+    position:absolute;
+    top: -2rem;
+    left: 29%;
+    z-index: 1;
+}
+
+.giffy{
+    width: 160px;
+    display: block;
+    position:absolute;
+    top: 35%;
+    left:1rem;
+    z-index: 1;
+}
+
+.bg {
+    background-image: url("https://images.pexels.com/photos/326333/pexels-photo-326333.jpeg");
+    background-attachment: fixed;
+    background-size: contain;
+  }
+
+/*                     HEADER                  */
+.header{
+    grid-area: header;
+    display:grid;
+    align-items:center;
+    grid-template: 
+    "burguer user" 4.5rem
+    "menu menu" auto;
+    height: 4.5rem;
+    overflow: hidden;  
+    transition: 0.4s ease-out;
+    background-color: rgba(150, 84, 34, 0.9);
+    position:sticky;
+    top:0; 
+    align-self: start;
+    z-index:10;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px #000;
+}
+/* 505.68 height noticias api */
+.burguer-ico {
+    grid-area:burguer;
+    display: inline-block;
+    cursor: pointer;
+    max-width: 35px;
+    margin: 1rem 1rem;
+  }
+  
+.bar-1, .bar-2, .bar-3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar-1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar-2 {opacity: 0;}
+
+.change .bar-3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+  
+.nav-list{
+    grid-area:nav;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type:none;
+    padding: 0 1rem;
+}
+
+.toggle{
+    transition: 0.4s ease-in;
+    height:15rem!important;
+}
+
+
+.user-ico{
+    grid-area:user;
+    margin: auto 1rem auto auto ;
+
+}
+
+
+  
+  /*                    MAIN                     */
+
+.main{
+    grid-area: main;
+    display:grid;
+    grid-template:
+    "carousel" auto
+    "minis" auto
+    "noticias" auto
+    "knowhat" auto
+    "reviews" auto
+    "banner" auto
+    "opinion" auto
+    "rsApi" auto
+    ;
+    justify-items: center;
+    row-gap: 1rem;
+}
+main>*{
+    border: 1px solid rgb(202, 94, 81);
+    width: 100%;
+    min-height: 10rem;;
+    text-align: center;
+    margin-bottom: auto;
+}
+/* MINIATURAS */
+.minuaturas{
+  grid-area:minis;
+  
+
+}
+.listaMinis{
+    display:flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    gap: 0.1rem;
+    margin-top:0;
+    margin-bottom:0;
+    overflow-y:scroll;
+}
+.miniaturas,.listaMinis{
+    height: 25.5rem;
+}
+
+.mini-card{
+    display:flex;
+    flex-direction: row;
+    border: 3px solid black;
+    position: relative;
+    background-image: url("/assets/img/used-paper-sheet-old-book-page-isolated-white-background_154730-1545.webp");
+    background-position: center;
+    background-size: 120%;
+
+}
+
+.imagen-mini{    
+  width: 12rem;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.imagen-mini img{
+    display:block;
+    object-fit: cover;
+    object-position:center;
+    width: 100%;
+    height: 100%;
+}
+.contenido-miniatura{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  height:8rem;
+  padding-left:1.5rem;   
+  padding-right: 2rem;
+  flex:1;
+  }
+
+  .pos{
+    color:white;
+    font-weight:bold;
+    background-color:rgb(81, 5, 5);
+    border-radius: 5px;
+    width:1rem;
+    text-align: center;
+    position:absolute;
+    left:2px;
+    bottom: 2px;
+
+  }
+  .tipo-mini{
+    color: rgb(126, 37, 26);
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  .titulo-mini{
+    font-weight:bold;
+  }
+
+  .link-mini{
+    cursor:pointer;
+    position:absolute;
+    width: 100%;
+    height:100%;
+    z-index: 10;
+  }
+
+
+
+/* CAROUSEL */
+.carousel{
+    grid-area: carousel;
+    width: 100%;
+    min-height: 30vh;
+    position: relative;
+    overflow: hidden;
+}
+.slide{
+    position: absolute;
+    inset:0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+
+}
+
+.slide >img{
+    display:block;
+    width: 100%;
+    min-height: 30vh;
+    height: 100%;
+    object-fit: cover;
+    object-position:center;
+    position:relative;
+
+}
+
+.slide[data-active]{
+    opacity:1;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.carousel-button{
+    position:absolute;
+    background: none;
+    border: none;
+    font-size:4rem;
+    top:50%;
+    z-index:2;
+    transform: translateY(-50%);
+    color:rgba(255,255,255,.5);
+    cursor:pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+    background-color: rgba(0,0,0,.1);
+
+}
+
+.carousel-button:hover, .carousel-button:focus{
+    color:white;
+    background-color: rgba(0,0,0,.2);
+}
+
+.carousel-button:focus{
+    outline: 1px solid black;
+}
+
+.carousel-button.prev{
+    left: 1rem;
+}
+
+.carousel-button.next{
+    right: 1rem;
+}
+.carousel >ul{
+    margin: 0;
+    padding:0;
+    list-style:none;
+}
+.subtitle{
+    position:absolute;
+    border: none;
+    z-index:2;
+    color:white;
+    bottom: 2rem;
+    font-weight:bold;
+    left: 10%;
+    right:10%;
+    height:auto;
+    display:block;
+    background-color:rgba(0,0,0,0.5);
+    border-radius: 15px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+
+
+/* NOTICIAS      */
+.noticias, .reviews, .opinion{
+    grid-area: noticias;
+    background-color: rgba(191, 123, 84, 0.7);
+    
+
+}
+.container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    grid-auto-rows: minmax(22rem, 27rem);
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    
+}
+
+.encabezado{
+    height: 3rem;
+}
+
+.card{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    /* background-color: papayawhip; */
+    background-image: url("/assets/img/used-paper-sheet-old-book-page-isolated-white-background_154730-1545.webp");
+    background-position: center;
+    background-size: 150%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.card:after{
+    content:'';
+    padding-top: 1rem;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(-135deg, rgba(255, 255, 255, 1) 12px, transparent 0%),
+    linear-gradient(135deg, rgba(255, 255, 255, 1) 12px, transparent 0%);
+    background-size: 24px;
+    transform:rotate(180deg)
+}
+
+.photo{
+    object-fit:cover;
+    height:auto;
+    width:100%;
+    background-color:gray;
+    clip-path: polygon(10% 0, 90% 0, 100% 15%, 100% 85%, 90% 100%, 10% 100%, 0 85%, 0 15%);
+}
+.card .titulo{
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.7rem;
+}
+
+.card .description{
+    overflow: hidden;
+    padding: 1rem;
+    text-align: justify;
+}
+.description{
+    font-weight: 400;
+}
+
+.card .seemore{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:auto;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+    background-color: rgba(79, 48, 21, 0.5);
+    height: 2rem;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align:center;
+    transition: all 0.5s ease;
+
+
+}
+.seemore a{
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+    font-size: 0.7rem;
+    color:white;
+    font-weight:bold;
+    text-decoration: none;
+    width:3rem;
+
+}
+
+.seemore:hover{
+    padding-right: 2rem;
+    transition: all 0.5s ease;
+    background-color: rgba(79, 48, 21, 0.89);
+
+}
+
+
+
+
+
+/* RED SOCIAL API     */
+.rsApi{
+    grid-area: rsApi;
+
+}
+.rsApi, .knowhat, .banner{
+    display:flex;
+    flex-direction: column;
+    min-width: 15rem;
+    min-height: 10rem;
+    height: 100%;
+    justify-content: center;   
+}
+.rsApi{
+    flex-direction: row;
+}
+.twitter-timeline{
+    overflow-y: scroll;
+    max-height: 28.5rem;
+    flex:1;
+}
+
+.twitter-timeline::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.twitter-timeline {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+
+
+
+/* REVIEW AREA */
+.reviews{
+    grid-area: reviews;
+    background-color: rgba(191, 123, 84, 0.7);
+
+}
+
+/* SABIAS QUE */
+.knowhat{
+    grid-area: knowhat;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: url("../assets/img/2woodenBanner\ -\ acostado.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.knowhat-fotito{
+    display:block;
+    width: 6rem;
+    background-color: rgba(79, 48, 21, 0.843);
+    border-radius: 50px;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+.knowhat>div{
+    font-weight:bold;
+    text-align: justify;
+    margin: 1.5rem;
+}
+
+.knowhat-button{
+    margin: 0.5rem;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    position:relative;
+    cursor: pointer;
+    background-color: rgba(79, 48, 21, 0.843);
+    color:white;
+
+    
+}
+
+.knowhat-button:hover::before{
+    content:"Clickeame!";
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:0.5rem;
+    width: 6rem;
+    height: 2rem;
+    background-color: rgba(79, 48, 21, 0.843);
+    border: 2px solid black;
+    color: white;
+    position:absolute;
+    top: -2.5rem;
+    left: -4rem;
+    animation:wobble;
+    animation-duration: 700ms;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+
+
+.banner{
+    grid-area: banner;
+}
+
+/* BANNER */
+
+
+.opinion{
+    grid-area: opinion;
+    background-color: rgba(191, 123, 84, 0.7);
+}
+.opinion .card{
+    border-top-left-radius: 120px ;
+    border-top-right-radius: 120px ;
+    border-bottom-right-radius: 20px ;
+
+}
+
+.opinion img{
+    border-radius:50%;
+    width: 150px;
+    height: 150px;
+    margin: 1rem auto;
+
+}
+
+/* OPINION SECTOR */
+
+
+
+
+
+.footer{
+    grid-area:footer;
+    margin-top: auto;
+    margin-bottom: 0;
+    display:flex;
+    flex-direction: column;
+}
+
+.footer>*{
+    text-align: center;
+}
+
+/*                FOOTER SECTOR              */
+.rs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    justify-items:center;
+    row-gap: 1rem;
+    padding-top: 1rem;
+}
+.rs i{
+    margin: 5px 0;
+}
+.notes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto auto;
+}
+.links{
+    display:inline-flex;
+    justify-content:space-evenly;
+}
+
+
+
+/*               TABLET             */
+@media (max-width: 520px){
+
+    .arcadiaBanner{
+        width: 90vw;
+        top: -1rem;
+        left: 5%;
+        z-index: 1;
+    }
+
+}
+
+@media (min-width: 530px){
+
+    .carousel{
+        min-height:26rem;
+    }
+    .miniaturas,.listaMinis{
+        height:26rem;
+    }
+
+}
+@media (min-width: 580px){
+
+    .carousel{
+        min-height:30rem;
+    }
+    .miniaturas,.listaMinis{
+        height:30rem;
+    }
+
+}
+
+
+@media (min-width: 868px){
+
+    .header{
+        height:4.5rem!important;
+    }
+
+    .burguer-ico{
+        display: none;
+    }
+    .nav-list{
+        list-style-type:none;
+        display:block;
+    }
+    .nav-list li{
+        display:inline;
+        margin: 0 1rem;
+    }
+    .main{
+        grid-template:
+        "carousel carousel carousel minis" auto
+        "noticias noticias noticias rsApi" auto
+        "knowhat reviews reviews reviews" auto
+        "banner banner banner banner" auto
+        "opinion opinion opinion opinion" auto
+        ;
+        column-gap: 1rem;
+    }
+
+    .carousel{
+        min-height:33rem;
+    }
+    .slide>img{
+        height:100%;
+    }
+
+    .miniaturas,.listaMinis{
+        height:33rem;
+
+    }
+
+    .listaMinis{
+        max-width: 20rem;
+
+      }
+
+    .imagen-mini{
+        width: 50%
+    }
+      .mini-card{ 
+        width:100%;
+        height:auto;
+ 
+    }
+    .contenido-miniatura{
+        padding:0.7rem;
+        padding:0.7rem;
+    }
+    .contenido-miniatura div{
+        font-size: 0.7rem;
+    }
+
+
+    .rsApi{
+        max-width:20rem;
+
+    }
+    .twitter-timeline{
+        max-height: 82.5rem!important;
+        overflow-y: scroll;    
+    }
+
+
+
+    .footer{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 3rem;
+        background-color: rgba(206, 137, 48, 0.7);
+    }
+    .rs{
+        column-gap: 1rem;
+    }
+    .links{
+        flex-direction: column;
+    }
+    
+    .twitter-timeline{
+        max-height: 145.5rem!important;   
+    }
+
+    .knowhat{
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        max-width: 15rem;
+        background-image: url("../assets/img/2woodenBanner.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+    
+    .knowhat-fotito{
+        margin-left: 0;
+        padding: 0.5rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+    }
+    .knowhat>div{
+        line-height: 2.5rem;
+        text-align: center;
+        font-size: 1.2rem;
+        width: 8rem;
+        margin-top: auto;
+        margin-bottom: auto;
+        max-height: 35rem;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+    .knowhat-button{
+        margin-bottom: 2rem;
+    }
+    
+.knowhat-button:hover::before{
+    top: -3rem;
+    left: -4rem;
+}
+    
+}
+
+/* PC */
+
+@media (min-width: 859px){
+
+    .twitter-timeline{
+        max-height: 145.5rem!important;    
+    }
+
+}
+@media (min-width: 880px){
+
+    .twitter-timeline{
+        max-height: 83.5rem!important;    
+    }
+
+}
+
+@media (min-width: 900px){
+    .carousel{
+        min-height:35rem;
+    }
+    .miniaturas,.listaMinis{
+        height:35rem;
+    }
+    .container{
+
+        grid-auto-rows: minmax(22rem, 24rem);
+
+    }   
+}
+@media (min-width: 1098px){
+
+    .twitter-timeline{
+        max-height: 55.5rem!important;
+        overflow-y: scroll;
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    
+    }
+
+}
+
+
+
